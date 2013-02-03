@@ -29,7 +29,7 @@
 				<action android:name="android.intent.action.VIEW"></action>  
 				<category android:name="android.intent.category.DEFAULT"></category>  
 				<category android:name="android.intent.category.BROWSABLE"></category>  
-				<data android:scheme="mapzen" android:host="osm_callback"></data>  
+				<data android:scheme="mapzen" android:path="osm_callback"></data>
 			</intent-filter>  
         </activity>
 
