@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:background="@drawable/place_moved_notification_background">
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:orientation="vertical">
+		<TextView android:id="@+id/place_moved_notification_poi_name_id" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:text="Place moved: Unknown"
+			android:textSize="16sp"
+			android:layout_margin="3dip"
+			android:layout_marginTop="5dip"
+			android:maxLength="30"
+			android:ellipsize="marquee">
+		</TextView>
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:text="@string/message_will_hide"
+			android:textSize="12sp"
+			android:layout_margin="3dip" 
+			android:layout_marginBottom="5dip"
+			android:maxLength="40">
+		</TextView>
+	</LinearLayout>
+	<Button android:id="@+id/place_moved_cancel_button_id"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/cancel_poi_menu_item_caption"
+		android:layout_alignParentRight="true"
+		android:gravity="center_vertical">
+	</Button>
+</RelativeLayout>

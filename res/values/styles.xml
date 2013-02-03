@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="windowBackground">
+		<!-- <item name="android:background">@drawable/background</item>
+		 --> 
+		<item name="android:layout_width">fill_parent</item> 
+		<item name="android:layout_height">fill_parent</item>
+	</style>
+
+	<style name="ContentWrapper">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+	
+	<style name="BlackText" parent="LayoutFillParent">
+		<item name="android:textColor">#000000</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	
+	<style name="PoiNameLayout">
+		<item name="android:background">@drawable/poi_name_bg</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_margin">10dip</item>
+		<item name="android:padding">10dip</item>
+	</style>
+	
+	<style name="PoiNameText" parent="BlackText">
+		<item name="android:textSize">19sp</item>
+        <item name="android:gravity">left|center_vertical</item> 
+        <item name="android:padding">10dip</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:lines">2</item>
+        <item name="android:ellipsize">end</item>
+	</style>
+	
+	<style name="Captions" parent="ContentWrapper">
+		<item name="android:textColor">#4C566C</item>
+		<item name="android:textSize">21sp</item>
+		<item name="android:layout_marginLeft">15dip</item>
+		<item name="android:layout_marginTop">10dip</item>
+	</style>
+	
+	<style name="PoiTypeControlLayout" parent="PoiNameLayout">
+		<item name="android:background">@drawable/poi_type_background</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+	
+	<style name="TypeControlCaptionText" parent="LayoutFillParent">
+		<item name="android:textColor">#4C566C</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:gravity">right|center_vertical</item> 
+		<item name="android:layout_centerVertical">true</item>
+		<item name="android:layout_marginTop">10dip</item>
+		<item name="android:layout_marginBottom">10dip</item>
+		<item name="android:layout_marginRight">10dip</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+	
+	<style name="PoiTypeText" parent="PoiNameText">
+        <item name="android:padding">0px</item>
+        <item name="android:lines">1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">10dip</item>
+		<item name="android:layout_marginBottom">10dip</item>
+		<item name="android:layout_marginRight">10dip</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+	
+	<style name="LayoutFillParent">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+	</style>
+	
+	<style name="PoiDescription" parent="BlackText">
+        <item name="android:background">@drawable/poi_name_background</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_margin">10dip</item>
+        <item name="android:padding">10dip</item>
+        <item name="android:lines">6</item>
+	</style>
+	
+	<style name="DefaultEditField">
+		<!-- <item name="android:background">@drawable/poi_name_bg</item>
+		 -->
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_margin">10dip</item>
+		<item name="android:padding">10dip</item>
+	</style>
+	
+	<style name="DeleteButton">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item> 
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textSize">21sp</item>
+		<item name="android:layout_margin">10dip</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColorHighlight">#000000</item>
+		<item name="android:clickable">true</item>
+	</style>
+	
+	<style name="SaveButton" parent="DeleteButton">
+	</style>
+</resources>
