@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categories>
+	<category name="auto">
+		<type name="auto_dealer" />
+		<type name="auto_parts" />
+		<type name="car_rental" />
+		<type name="car_repair" />
+		<type name="car_sharing" />
+		<type name="car_wash" />
+		<type name="motorcycle_dealer" />
+		<type name="parking" />
+		<type name="fuel_station" />
+		<!-- <type name="underground_parking" />  -->
+	</category>
+
+	<category name="education">
+		<type name="college" />
+		<type name="school" />
+		<type name="kindergarten" />
+		<type name="university" />
+	</category>
+
+	<category name="food_and_drinks">
+		<type name="bakery" />
+		<type name="cafe" />
+		<type name="fast_food" />
+		<type name="pub" />
+		<type name="restaurant" />
+	</category>
+
+	<category name="government">
+		<type name="border_crossing" />
+		<type name="city_hall" />
+		<type name="court" />
+		<type name="embassy" />
+		<type name="fire_station" />
+		<type name="police" />
+		<type name="prison" />
+	</category>
+
+	<category name="health_care_and_veterinary">
+		<type name="dentist" />
+		<type name="doctor" />
+		<type name="hospital" />
+		<!-- <type name="optician" />  -->
+		<type name="pharmacy" />
+		<type name="veterinary" />
+	</category>
+
+	<category name="entertainment">
+		<type name="arts_centre" />
+		<type name="cinema" />
+		<type name="library" />
+		<type name="museum" />
+		<type name="water_park" />
+		<type name="nightclub" />
+		<type name="artwork" />
+		<type name="theatre" />
+		<type name="theme_park" />
+		<type name="zoo" />
+	</category>
+
+	<category name="recreation">
+		<type name="aerialway_station" />
+		<type name="archaeological_site" />
+		<type name="beach" />
+		<type name="cable_car" />
+		<type name="castle" />
+		<type name="cave_entrance" />
+		<type name="fishing" />
+		<type name="fountain" />
+		<type name="garden" />
+		<type name="glacier" />
+		<type name="information" />
+		<type name="memorial" />
+		<type name="monument" />
+		<type name="marina" />
+		<type name="nature_reserve" />
+		<type name="park" />
+		<type name="peak" />
+		<type name="picnic_site" />
+		<type name="place_of_worship" />
+		<type name="recreation_ground" />
+		<type name="ruins" />
+		<type name="tree" />
+		<type name="spring" />
+		<type name="tower" />
+		<type name="viewpoint" />
+		<type name="volcano" />
+		<type name="watermill" />
+	</category>
+
+	<category name="travel_and_accommodation">
+		<type name="camp_site" />
+		<type name="guest_house" />
+		<type name="hotel" />
+		<type name="hostel" />
+		<type name="motel" />
+		<type name="chalet" />
+	</category>
+
+	<category name="transport_access_points">
+		<type name="bicycle_parking" />
+		<type name="bicycle_rental" />
+		<type name="bus_stop" />
+		<type name="ferry_stop" />
+		<type name="taxi_stop" />
+		<type name="tram_stop" />
+		<type name="train_station" />
+		<type name="subway_station" />
+	</category>
+
+	<category name="sports">
+		<type name="golf_course" />
+		<type name="sport_centre" />
+		<type name="stadium" />
+		<type name="ten_pin" />
+		<type name="athletics" />
+		<type name="australian_football" />
+		<type name="archery" />
+		<type name="baseball" />
+		<type name="basketball" />
+		<type name="boules" />
+		<type name="bowls" />
+		<type name="canoe" />
+		<type name="climbing" />
+		<type name="cricket" />
+		<type name="cricket_nets" />
+		<type name="croquet" />
+		<type name="dog_racing" />
+		<type name="equestrian" />
+		<type name="football" />
+		<type name="golf" />
+		<type name="gymnastics" />
+		<type name="hockey" />
+		<type name="horse_racing" />
+		<type name="motor_sport" />
+		<type name="multi" />
+		<type name="pelota" />
+		<type name="pitch" />
+		<type name="racquet" />
+		<type name="rowing" />
+		<type name="rugby" />
+		<type name="shooting" />
+		<type name="skating" />
+		<type name="skateboard" />
+		<type name="soccer" />
+		<type name="swimming" />
+		<type name="skiing" />
+		<type name="track" />
+		<type name="table_tennis" />
+		<type name="team_handball" />
+		<type name="tennis" />
+		<type name="orienteering" />
+	</category>
+
+	<category name="shopping">
+		<type name="supermarket" />
+		<type name="convenience" />
+		<type name="department_store" />
+		<type name="clothes" />
+		<type name="shoes" />
+		<type name="books" />
+		<type name="stationery" />
+		<type name="music_video" />
+		<type name="computers" />
+		<type name="electronics" />
+		<type name="photo" />
+		<type name="phone" />
+		<type name="mobile" />
+		<type name="alcohol" />
+		<type name="butcher" />
+		<type name="confectionery" />
+		<type name="organic" />
+		<type name="adult" />
+		<type name="furniture" />
+		<type name="carpets" />
+		<type name="textile" />
+		<type name="doityourself" />
+		<type name="florist" />
+		<type name="jewelers" />
+		<type name="souvenirs" />
+		<type name="toys" />
+		<type name="general_sporting_goods" />
+		<type name="bicycle" />
+		<type name="outdoor" />
+	</category>
+
+	<category name="services">
+		<type name="atm" />
+		<type name="bank" />
+		<type name="bureau_de_change" />
+		<type name="post_office" />
+		<type name="post_box" />
+		<type name="internet_cafe" />
+		<type name="publicToilets" />
+		<type name="recycling" />
+		<type name="drinkingWater" />
+		<type name="telephone" />
+		<type name="surveillance" />
+		<type name="dry_cleaning" />
+		<type name="brothel" />
+		<type name="laundry" />
+		<type name="hairdresser" />
+		<type name="travel_agency" />
+	</category>
+</categories>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="?android:attr/listPreferredItemHeight"
+	android:padding="6dip">
+	<ImageView android:id="@+id/categoryListViewItemIconId"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_marginRight="6dip" 
+		/>
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="fill_parent" 
+		android:id="@+id/categoryListViewItemNameId"
+		android:singleLine="true" 
+		android:ellipsize="marquee"
+		android:layout_toRightOf="@id/categoryListViewItemIconId"
+		android:layout_centerVertical="true" 
+		android:textAppearance="?android:attr/textAppearanceMedium"/>
+	<ImageView
+		android:id="@+id/arrow_show_subtypes"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="6dip" 
+		android:layout_marginRight="6dip"
+		android:src="@drawable/tab_right_arrow"
+		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"/>
+</RelativeLayout>

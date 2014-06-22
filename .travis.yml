@@ -1,0 +1,13 @@
+language: android
+jdk: oraclejdk7
+
+android:
+    components:
+        - android-19
+        - build-tools-19.1.0
+        - extra-android-support
+    licenses:
+        - android-sdk-license-bcbbd656
+
+script:
+    - ./gradlew build -q

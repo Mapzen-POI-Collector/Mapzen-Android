@@ -1,0 +1,50 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        applicationId "com.mapzen"
+        minSdkVersion 8
+        targetSdkVersion 19
+    }
+
+    dependencies {
+        compile "org.osmdroid:osmdroid-android:4.1"
+        compile 'org.slf4j:slf4j-android:1.7.7'
+        compile(group: 'ch.acra', name: 'acra', version: '4.5.0') {
+            exclude(group: 'org.json', module: 'json')
+        }
+        compile(group: 'oauth.signpost', name: 'signpost-commonshttp4', version: '1.2.1.2') {
+            exclude(group: 'org.apache.httpcomponents', module: 'httpcore')
+            exclude(group: 'org.apache.httpcomponents', module: 'httpclient')
+        }
+
+    }
+
+    signingConfigs {
+        release
+    }
+
+    buildTypes {
+        release {
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    lintOptions {
+        disable 'MissingTranslation'
+    }
+}
+
+if (hasProperty('StoreFile')) {
+    android.signingConfigs.release.storeFile = file(StoreFile)
+    android.signingConfigs.release.storePassword = StorePassword
+    android.signingConfigs.release.keyAlias = KeyAlias
+    android.signingConfigs.release.keyPassword = KeyPassword
+} else {
+    android.buildTypes.release.signingConfig = null
+}
