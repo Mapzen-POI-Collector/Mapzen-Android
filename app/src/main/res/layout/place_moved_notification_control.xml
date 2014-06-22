@@ -17,7 +17,7 @@
             android:layout_marginTop="5dip"
             android:ellipsize="marquee"
             android:maxLength="30"
-            android:text="Place moved: Unknown"
+            android:text="@string/place_moved_default_value"
             android:textSize="16sp"/>
 
         <TextView

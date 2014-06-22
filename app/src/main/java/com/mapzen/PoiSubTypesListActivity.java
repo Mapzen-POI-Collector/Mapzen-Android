@@ -89,9 +89,8 @@ public class PoiSubTypesListActivity extends ListActivity implements MapzenConst
         public View getView(int position, View convertView, ViewGroup parent) {
               View v = convertView;
               if (v == null) {
-                  LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                  v = vi.inflate(R.layout.categories_list_view_row, null);
-                  ((ImageView)v.findViewById(R.id.arrow_show_subtypes)).setVisibility(View.GONE);
+                  v = getLayoutInflater().inflate(R.layout.categories_list_view_row, parent, false);
+                  v.findViewById(R.id.arrow_show_subtypes).setVisibility(View.GONE);
               }
               String c = getItem(position);
               if (c != null) {

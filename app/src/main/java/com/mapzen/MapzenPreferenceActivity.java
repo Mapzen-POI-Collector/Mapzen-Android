@@ -26,11 +26,10 @@ public class MapzenPreferenceActivity extends PreferenceActivity implements OnPr
         addPreferencesFromResource(R.xml.preferences);
         getPrefsFromFile();
 
-        isOsmDownloadAutomatic = (CheckBoxPreference)findPreference(PREF_DOWNLOAD_OSM);
-        isOsmDownloadAutomatic.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+        findPreference(PREF_DOWNLOAD_OSM).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                boolean isChecked = (Boolean)newValue ;
+                boolean isChecked = (Boolean) newValue;
                 SettingsManager.getInstance().putBoolean(PREF_DOWNLOAD_OSM, isChecked);
                 return true;
             }
@@ -61,15 +60,9 @@ public class MapzenPreferenceActivity extends PreferenceActivity implements OnPr
 
     private void updateCacheSizeOnUI() {
         long cacheDirSize = dirSize(OpenStreetMapTileProviderConstants.OSMDROID_PATH);
-        String cacheSize = String.format("%.1f", cacheDirSize/1024f/1024f);
-
         Preference clearMapTilesPref = findPreference("clear_map_tiles_cache");
         clearMapTilesPref.setOnPreferenceClickListener(this);
-        StringBuilder sb = new StringBuilder(getString(R.string.current_cache_size))
-            .append(": ")
-            .append(cacheSize)
-            .append(" Mb");
-        clearMapTilesPref.setSummary(sb.toString());
+        clearMapTilesPref.setSummary(getString(R.string.current_cache_size, cacheDirSize/1024f/1024f));
     }
 
     /**
@@ -79,13 +72,13 @@ public class MapzenPreferenceActivity extends PreferenceActivity implements OnPr
         long result = 0;
         File[] fileList = dir.listFiles();
 
-        for(int i = 0; i < fileList.length; i++) {
+        for (File file : fileList) {
             // Recursive call if it's a directory
-            if(fileList[i].isDirectory()) {
-                result += dirSize(fileList[i]);
+            if (file.isDirectory()) {
+                result += dirSize(file);
             } else {
                 // Sum the file size in bytes
-                result += fileList[i].length();
+                result += file.length();
             }
         }
         return result; // return the file size
@@ -94,13 +87,13 @@ public class MapzenPreferenceActivity extends PreferenceActivity implements OnPr
     private static boolean delete(File dir) {
         File[] fileList = dir.listFiles();
         boolean result = true;
-        for(int i = 0; i < fileList.length; i++) {
+        for (File file : fileList) {
             // Recursive call if it's a directory
-            if(fileList[i].isDirectory()) {
-                if (!delete(fileList[i]))
+            if (file.isDirectory()) {
+                if (!delete(file))
                     result = false;
             } else {
-                if(!fileList[i].delete())
+                if (!file.delete())
                     result = false;
             }
         }

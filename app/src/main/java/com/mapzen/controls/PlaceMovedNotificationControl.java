@@ -44,8 +44,6 @@ public class PlaceMovedNotificationControl extends RelativeLayout {
     private Button cancelButton;
     private TextView textView;
 
-    private Context context;
-
     public PlaceMovedNotificationControl(Context context) {
         super(context);
         init(context);
@@ -57,10 +55,8 @@ public class PlaceMovedNotificationControl extends RelativeLayout {
     }
 
     private void init(Context ctx) {
-        context = ctx;
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Application.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.place_moved_notification_control, null);
-        addView(layout);
+        LayoutInflater inflater = LayoutInflater.from(ctx);
+        inflater.inflate(R.layout.place_moved_notification_control, this);
         cancelButton = (Button)findViewById(R.id.place_moved_cancel_button_id);
         textView = (TextView)findViewById(R.id.place_moved_notification_poi_name_id);
     }
@@ -70,8 +66,6 @@ public class PlaceMovedNotificationControl extends RelativeLayout {
     }
 
     public void setText(String text) {
-        StringBuilder sb = new StringBuilder(context.getString(R.string.poi_was_moved))
-            .append(": ").append((text != null) ? text : "");
-        textView.setText(sb.toString());
+        textView.setText(getContext().getString(R.string.poi_was_moved) + ": " + ((text != null) ? text : ""));
     }
 }

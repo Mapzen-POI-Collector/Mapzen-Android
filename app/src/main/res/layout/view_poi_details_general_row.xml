@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:padding="6dip">
@@ -10,7 +11,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:text="type goes here"
+        tools:text="type goes here"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="normal" />
 
@@ -19,7 +20,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ViewPoiDetailsListViewLabelId"
-        android:text="value goes here"
+        tools:text="value goes here"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="normal" />
 </RelativeLayout>

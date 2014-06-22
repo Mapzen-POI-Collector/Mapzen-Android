@@ -57,8 +57,7 @@ public class ZoomInToAddPois extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Application.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.zoom_in_to_add_poi, null);
-        addView(layout);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        inflater.inflate(R.layout.zoom_in_to_add_poi, this);
     }
 }

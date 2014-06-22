@@ -99,8 +99,7 @@ public class PoiGroupsListActivity extends ListActivity implements MapzenConstan
         public View getView(int position, View convertView, ViewGroup parent) {
               View v = convertView;
               if (v == null) {
-                  LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                  v = vi.inflate(R.layout.categories_list_view_row, null);
+                  v = getLayoutInflater().inflate(R.layout.categories_list_view_row, parent, false);
               }
               String c = getItem(position);
               if (c != null) {

@@ -37,6 +37,7 @@ import com.mapzen.data.osm.OsmNode;
 import com.mapzen.io.OSMFacade;
 import com.mapzen.map.overlays.OsmPoisOverlay;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -243,6 +244,7 @@ public class EditPoiActivity extends Activity implements MapzenConstants {
 
     }
 
+    @SuppressLint("InflateParams")
     protected Dialog onCreateDialog(int id) {
         LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View v;
@@ -489,11 +491,11 @@ public class EditPoiActivity extends Activity implements MapzenConstants {
             LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if (position == 0)
                 if (getItem(position).equals("")) {
-                    v = vi.inflate(R.layout.edit_poi_details_first_row_empty, null);
+                    v = vi.inflate(R.layout.edit_poi_details_first_row_empty, parent, false);
                 }
-                else v= vi.inflate(R.layout.edit_poi_details_first_row, null);
+                else v= vi.inflate(R.layout.edit_poi_details_first_row, parent, false);
             else
-                v = vi.inflate(R.layout.poi_type_control_type_row, null);
+                v = vi.inflate(R.layout.poi_type_control_type_row, parent, false);
 
             String c = getItem(position);
             if (c != null) {
@@ -524,7 +526,7 @@ public class EditPoiActivity extends Activity implements MapzenConstants {
                         String poiCategory = OsmDriver.getInstance().getCategory(c);
                         String poiTypeCaption = ResourceManager.getInstance()
                         .getStringResource(c);
-                        if (poiCategory != "unknown") {
+                        if (!"unknown".equals(poiCategory)) {
                             String poiCategoryCaption = ResourceManager.getInstance().getStringResource(poiCategory);
                             value = poiCategoryCaption + " : " + poiTypeCaption;
                         } else {

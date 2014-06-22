@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_screen_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:gravity="center">
 
-    <RelativeLayout
-        android:id="@+id/login_screen_layout"
-        android:layout_width="fill_parent"
+    <ImageView
+        android:id="@+id/mapzen_logo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dip"
+        android:src="@drawable/mapzen_logo_big"/>
 
-        <ImageView
-            android:id="@+id/mapzen_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5dip"
-            android:src="@drawable/mapzen_logo_big"></ImageView>
+    <TextView
+        android:id="@+id/osm_login_page_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mapzen_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dip"
+        android:layout_marginLeft="10dip"
+        android:text="@string/app_name"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/osm_login_page_text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mapzen_logo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dip"
-            android:layout_marginLeft="10dip"
-            android:text="@string/app_name"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/osm_login_page_text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:gravity="fill_horizontal"
+        android:text="@string/loading"
+        android:textColor="#000000"
+        android:textSize="16sp"/>
+</RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/osm_login_page_text1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dip"
-            android:layout_marginLeft="10dip"
-            android:gravity="fill_horizontal"
-            android:text="@string/loading"
-            android:textColor="#000000"
-            android:textSize="16sp"></TextView>
-    </RelativeLayout>
-
-</LinearLayout>

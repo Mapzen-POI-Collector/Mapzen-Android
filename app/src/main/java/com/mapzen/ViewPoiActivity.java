@@ -172,20 +172,22 @@ public class ViewPoiActivity extends Activity implements MapzenConstants {
 
     private class PoiDataArrayAdapter extends ArrayAdapter<StringPair> {
 
+        private final LayoutInflater mInflater;
+
         public PoiDataArrayAdapter(Context context,
                 int textViewResourceId) {
             super(context, textViewResourceId);
+            mInflater = LayoutInflater.from(context);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = convertView;
 
-            LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if (position == 0)
-                v = vi.inflate(R.layout.view_poi_details_first_row, null);
+                v = mInflater.inflate(R.layout.view_poi_details_first_row, parent, false);
             else
-                v = vi.inflate(R.layout.view_poi_details_general_row, null);
+                v = mInflater.inflate(R.layout.view_poi_details_general_row, parent, false);
 
             StringPair dataItem = getItem(position);
 
@@ -209,8 +211,7 @@ public class ViewPoiActivity extends Activity implements MapzenConstants {
                             String poiTypeName = ResourceManager.getInstance().getStringResource(dataItem.value);
                             value = poiCategoryName + " : " + poiTypeName;
                         } else {
-                            String tags = ViewPoiActivity.this.poi.getTags().toString();
-                            value = tags;
+                            value = ViewPoiActivity.this.poi.getTags().toString();
                         }
                     }
                 TextView typeLabel = (TextView) v
