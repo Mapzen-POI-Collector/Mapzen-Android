@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,7 +22,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
@@ -36,7 +36,7 @@ import com.mapzen.constants.MapzenConstants;
 
 public class OAuthAccessTokenHolder implements MapzenConstants {
 
-	private static final String TAG = OAuthAccessTokenHolder.class.getSimpleName(); 
+	private static final String TAG = OAuthAccessTokenHolder.class.getSimpleName();
 
     private static OAuthAccessTokenHolder instance;
 
@@ -52,7 +52,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
 
     /**
      * Replies the access token key. null, if no access token key is currently set.
-     * 
+     *
      * @return the access token key
      */
     public String getAccessTokenKey() {
@@ -61,7 +61,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
 
     /**
      * Sets the access token key. Pass in null to remove the current access token key.
-     * 
+     *
      * @param accessTokenKey the access token key
      */
     public void setAccessTokenKey(String accessTokenKey) {
@@ -70,7 +70,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
 
     /**
      * Replies the access token secret. null, if no access token secret is currently set.
-     * 
+     *
      * @return the access token secret
      */
     public String getAccessTokenSecret() {
@@ -79,7 +79,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
 
     /**
      * Sets the access token secret. Pass in null to remove the current access token secret.
-     * 
+     *
      * @param accessTokenSecret
      */
     public void setAccessTokenSecret(String accessTokenSecret) {
@@ -94,7 +94,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
 
     /**
      * Sets the access token hold by this holder.
-     * 
+     *
      * @param accessTokenKey the access token key
      * @param accessTokenSecret the access token secret
      */
@@ -105,7 +105,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
 
     /**
      * Sets the access token hold by this holder.
-     * 
+     *
      * @param token the access token. Can be null to clear the content in this holder.
      */
     public void setAccessToken(OAuthToken token) {
@@ -121,7 +121,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
     /**
      * Replies true if this holder contains an complete access token, consisting of an
      * Access Token Key and an Access Token Secret.
-     * 
+     *
      * @return true if this holder contains an complete access token
      */
     public boolean containsAccessToken() {
@@ -131,7 +131,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
     /**
      * Initializes the content of this holder from the Access Token managed by the
      * credential manager.
-     * 
+     *
      * @param pref the preferences. Must not be null.
      * @param cm the credential manager. Must not be null.
      * @throws IllegalArgumentException thrown if cm is null
@@ -144,7 +144,7 @@ public class OAuthAccessTokenHolder implements MapzenConstants {
     /**
      * Saves the content of this holder to the preferences
      */
-    
+
     public void saveToPreferences(SharedPreferences settings) {
 		// null means to clear the old values
 		SharedPreferences.Editor editor = settings.edit();

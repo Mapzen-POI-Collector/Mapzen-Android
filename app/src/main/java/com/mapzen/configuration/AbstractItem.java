@@ -32,6 +32,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public abstract class AbstractItem {
-	public abstract boolean match(Map<String, String> tagsCollection);
-	public abstract ArrayList<TagItem> getTagging();
+    public abstract boolean match(Map<String, String> tagsCollection);
+    public abstract ArrayList<TagItem> getTagging();
 }

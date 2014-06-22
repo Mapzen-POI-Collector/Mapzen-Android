@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,11 +22,11 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 /**
- * 
+ *
  */
 package com.mapzen.util;
 
@@ -48,102 +48,102 @@ import android.graphics.drawable.Drawable;
  *
  */
 public final class Callout implements MapzenConstants {
-	private static Drawable callout_center;
-	private static Drawable callout_left;
-	private static Drawable callout_right;
-	private static Drawable callout_fill;
-	
-	private static Paint mPaint;
-	private static final float mTextSize = 18f; //to be scaled later
-	
-	private static float scale;
+    private static Drawable callout_center;
+    private static Drawable callout_left;
+    private static Drawable callout_right;
+    private static Drawable callout_fill;
 
-	static {	
-		mPaint = new Paint();
-		mPaint.setAntiAlias(true);
-		mPaint.setTextAlign(Align.CENTER);
-		mPaint.setColor(Color.WHITE);
-		mPaint.setTypeface(Typeface.SANS_SERIF);
-		mPaint.setFakeBoldText(true);
-	}
+    private static Paint mPaint;
+    private static final float mTextSize = 18f; //to be scaled later
 
-	//TODO: refactor
-	public static void drawCallout(final Canvas c, final Point basePointCoordinates, 
-			final Context context, final String text) {
+    private static float scale;
 
-		scale = context.getResources().getDisplayMetrics().density;
+    static {
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setTextAlign(Align.CENTER);
+        mPaint.setColor(Color.WHITE);
+        mPaint.setTypeface(Typeface.SANS_SERIF);
+        mPaint.setFakeBoldText(true);
+    }
 
-		String calloutCaption = (text != null) ? text 
-				: context.getString(R.string.calloutCaptionDefault);
+    //TODO: refactor
+    public static void drawCallout(final Canvas c, final Point basePointCoordinates,
+            final Context context, final String text) {
 
-		/* callout center */
-		callout_center = context.getResources().getDrawable(R.drawable.callout_center);
-		callout_left = context.getResources().getDrawable(R.drawable.callout_left);
-		callout_right = context.getResources().getDrawable(R.drawable.callout_right);
-		callout_fill = context.getResources().getDrawable(R.drawable.callout_fill);
+        scale = context.getResources().getDisplayMetrics().density;
 
-		int left = basePointCoordinates.x - (int)(callout_center.getIntrinsicWidth()/2);
-		int right = left + (int)(callout_center.getIntrinsicWidth());
-		int bottom = basePointCoordinates.y;
-		int top = bottom - (int)(callout_center.getIntrinsicHeight());
+        String calloutCaption = (text != null) ? text
+                : context.getString(R.string.calloutCaptionDefault);
 
-		callout_center.setBounds(left, top, right, bottom);
-		callout_center.draw(c);
+        /* callout center */
+        callout_center = context.getResources().getDrawable(R.drawable.callout_center);
+        callout_left = context.getResources().getDrawable(R.drawable.callout_left);
+        callout_right = context.getResources().getDrawable(R.drawable.callout_right);
+        callout_fill = context.getResources().getDrawable(R.drawable.callout_fill);
 
-		/* callout text*/
-		mPaint.setTextSize(mTextSize*scale);
-		final int numberOfRenderedCharacters = mPaint.breakText(calloutCaption, true, maxCalloutWidth*scale, null);
-		String textToRender = calloutCaption.substring(0, numberOfRenderedCharacters);
-		int textWidth = Math.max((int) mPaint.measureText(textToRender), (int)(minCalloutWidth*scale));
+        int left = basePointCoordinates.x - (int)(callout_center.getIntrinsicWidth()/2);
+        int right = left + (int)(callout_center.getIntrinsicWidth());
+        int bottom = basePointCoordinates.y;
+        int top = bottom - (int)(callout_center.getIntrinsicHeight());
 
-		
-		/* draw left callout fill */
-		int c_f_left = basePointCoordinates.x - textWidth/2 + (int)(callout_left.getIntrinsicWidth()/4);
-		int c_f_bottom = top + (int)(callout_fill.getIntrinsicHeight());
-		callout_fill.setBounds(c_f_left, top, left, c_f_bottom);
-		callout_fill.draw(c);
-		
-		/* draw right callout fill */
-		int c_f_right = basePointCoordinates.x + textWidth/2 - (int)(callout_left.getIntrinsicWidth()/4);
-		callout_fill.setBounds(right, top, c_f_right, c_f_bottom);
-		callout_fill.draw(c);
-		
-		/* left callout ending */
-		callout_left.setBounds(c_f_left - (int)(callout_left.getIntrinsicWidth()), top, c_f_left, c_f_bottom);
-		callout_left.draw(c);
-		
-		/* right callout ending */
-		callout_right.setBounds(c_f_right, top, (int)(c_f_right + callout_right.getIntrinsicWidth()), c_f_bottom);
-		callout_right.draw(c);
-		
-		c.drawText(textToRender, basePointCoordinates.x - callout_left.getIntrinsicWidth()/2, top + (callout_left.getIntrinsicHeight())/2, mPaint);
-	}
-	
-	
-	public static Rect getCalloutActiveZone(final Point basePointCoordinates, 
-			final Context context, final String text) {
-		
-		scale = context.getResources().getDisplayMetrics().density;
-		
-		String calloutCaption = (text != null) ? text 
-				: context.getString(R.string.calloutCaptionDefault);
-		
-		int top =  basePointCoordinates.y - (int)(callout_center.getIntrinsicHeight());
+        callout_center.setBounds(left, top, right, bottom);
+        callout_center.draw(c);
 
-		mPaint.setTextSize(mTextSize*scale);
-		final int numberOfRenderedCharacters = mPaint.breakText(calloutCaption, true, maxCalloutWidth*scale, null);
-		String textToRender = calloutCaption.substring(0, numberOfRenderedCharacters);
-		int textWidth = Math.max((int) mPaint.measureText(textToRender), (int)(minCalloutWidth*scale));
+        /* callout text*/
+        mPaint.setTextSize(mTextSize*scale);
+        final int numberOfRenderedCharacters = mPaint.breakText(calloutCaption, true, maxCalloutWidth*scale, null);
+        String textToRender = calloutCaption.substring(0, numberOfRenderedCharacters);
+        int textWidth = Math.max((int) mPaint.measureText(textToRender), (int)(minCalloutWidth*scale));
 
-		/* callout_fill left x coordinate */
-		int c_f_left = basePointCoordinates.x - textWidth/2 + (int) (callout_left.getIntrinsicWidth()/4);
-		
-		int c_f_right = basePointCoordinates.x + textWidth/2 - (int) (callout_left.getIntrinsicWidth()/4);
-		int active_right = c_f_right + (int)(callout_right.getIntrinsicWidth());
-		int active_left = c_f_left - (int)(callout_left.getIntrinsicWidth());
-		int active_bottom = top + (int)(callout_right.getIntrinsicHeight());
-		
-		Rect activeZone = new Rect(active_left, top, active_right, active_bottom);
-		return activeZone;
-	}
+
+        /* draw left callout fill */
+        int c_f_left = basePointCoordinates.x - textWidth/2 + (int)(callout_left.getIntrinsicWidth()/4);
+        int c_f_bottom = top + (int)(callout_fill.getIntrinsicHeight());
+        callout_fill.setBounds(c_f_left, top, left, c_f_bottom);
+        callout_fill.draw(c);
+
+        /* draw right callout fill */
+        int c_f_right = basePointCoordinates.x + textWidth/2 - (int)(callout_left.getIntrinsicWidth()/4);
+        callout_fill.setBounds(right, top, c_f_right, c_f_bottom);
+        callout_fill.draw(c);
+
+        /* left callout ending */
+        callout_left.setBounds(c_f_left - (int)(callout_left.getIntrinsicWidth()), top, c_f_left, c_f_bottom);
+        callout_left.draw(c);
+
+        /* right callout ending */
+        callout_right.setBounds(c_f_right, top, (int)(c_f_right + callout_right.getIntrinsicWidth()), c_f_bottom);
+        callout_right.draw(c);
+
+        c.drawText(textToRender, basePointCoordinates.x - callout_left.getIntrinsicWidth()/2, top + (callout_left.getIntrinsicHeight())/2, mPaint);
+    }
+
+
+    public static Rect getCalloutActiveZone(final Point basePointCoordinates,
+            final Context context, final String text) {
+
+        scale = context.getResources().getDisplayMetrics().density;
+
+        String calloutCaption = (text != null) ? text
+                : context.getString(R.string.calloutCaptionDefault);
+
+        int top =  basePointCoordinates.y - (int)(callout_center.getIntrinsicHeight());
+
+        mPaint.setTextSize(mTextSize*scale);
+        final int numberOfRenderedCharacters = mPaint.breakText(calloutCaption, true, maxCalloutWidth*scale, null);
+        String textToRender = calloutCaption.substring(0, numberOfRenderedCharacters);
+        int textWidth = Math.max((int) mPaint.measureText(textToRender), (int)(minCalloutWidth*scale));
+
+        /* callout_fill left x coordinate */
+        int c_f_left = basePointCoordinates.x - textWidth/2 + (int) (callout_left.getIntrinsicWidth()/4);
+
+        int c_f_right = basePointCoordinates.x + textWidth/2 - (int) (callout_left.getIntrinsicWidth()/4);
+        int active_right = c_f_right + (int)(callout_right.getIntrinsicWidth());
+        int active_left = c_f_left - (int)(callout_left.getIntrinsicWidth());
+        int active_bottom = top + (int)(callout_right.getIntrinsicHeight());
+
+        Rect activeZone = new Rect(active_left, top, active_right, active_bottom);
+        return activeZone;
+    }
 }

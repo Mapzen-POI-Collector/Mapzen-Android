@@ -1,126 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:id="@+id/ScrollView01" 
-	style="@style/windowBackground"
-	xmlns:android="http://schemas.android.com/apk/res/android">
-	<LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    style="@style/windowBackground">
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"> 
-    	<RelativeLayout style="@style/PoiNameLayout">
+        android:orientation="vertical">
+
+        <RelativeLayout style="@style/PoiNameLayout">
+
             <ImageView
-            	android:id="@+id/poiIcon"
-                android:layout_height="wrap_content"
+                android:id="@+id/poiIcon"
                 android:layout_width="wrap_content"
-                android:layout_centerVertical="true">
-            </ImageView>
-            <TextView style="@style/PoiNameText" 
-        		android:id="@+id/poiNameTextView"
-        		android:layout_toRightOf="@id/poiIcon">
-        	</TextView>
-        </RelativeLayout>     
-        
-        <TextView style="@style/Captions"
-        	android:text="@string/place_of_interest_type">
-        </TextView>
-		<TableLayout style="@style/PoiTypeControlLayout"
-			android:clickable="true">
-			<TableRow> 
-				<TextView style="@style/TypeControlCaptionText" 
-        			android:text="@string/type">
-        		</TextView>
-        		<TextView style="@style/PoiTypeText" 
-        			android:id="@+id/poiCategoryTextView"
-        			android:text="">
-        		</TextView>
-			</TableRow>
-			<TableRow>
-				<TextView style="@style/TypeControlCaptionText" 
-        			android:text="@string/sub_type">
-        		</TextView>
-				<TextView style="@style/PoiTypeText" 
-        			android:id="@+id/poiTypeTextView"
-        			android:text="">
-        		</TextView>
-			</TableRow>
-		</TableLayout>
-		
-		<TextView style="@style/Captions"
-			android:id="@+id/poiAddressCaption"
-        	android:text="@string/address_information"
-        	android:visibility="gone">
-        </TextView>
-		<TableLayout style="@style/PoiTypeControlLayout"
-			android:id="@+id/poiAddressControl"
-			android:clickable="true"
-			android:visibility="gone">
-			<TableRow> 
-				<TextView style="@style/TypeControlCaptionText" 
-        			android:text="@string/street">
-        		</TextView>
-        		<TextView style="@style/PoiTypeText" 
-        			android:id="@+id/poiAddrStreet"
-        			android:text="">
-        		</TextView>
-			</TableRow>
-			<TableRow>
-				<TextView style="@style/TypeControlCaptionText" 
-        			android:text="@string/housenumber">
-        		</TextView>
-				<TextView style="@style/PoiTypeText" 
-        			android:id="@+id/poiAddrHousenumber"
-        			android:text="">
-        		</TextView>
-			</TableRow>
-		</TableLayout>
-		
-		<TextView style="@style/Captions"
-			android:id="@+id/poiContactsCaption"
-        	android:text="@string/contacts"
-        	android:visibility="gone">
-        </TextView>
-        <TableLayout style="@style/PoiTypeControlLayout"
-			android:id="@+id/poiContactsControl"
-			android:clickable="true"
-			android:visibility="gone">
-			<TableRow android:id="@+id/poiWebsiteTableRow"> 
-				<TextView style="@style/TypeControlCaptionText" 
-        			android:text="@string/website">
-        		</TextView>
-        		<TextView style="@style/PoiTypeText" 
-        			android:id="@+id/poiWebsiteId">
-        		</TextView>
-			</TableRow>
-			<TableRow android:id="@+id/poiPhoneTableRow"> 
-				<TextView style="@style/TypeControlCaptionText" 
-        			android:text="@string/phone_number">
-        		</TextView>
-        		<TextView style="@style/PoiTypeText" 
-        			android:id="@+id/poiPhoneId">
-        		</TextView>
-			</TableRow>
-		</TableLayout>
-		
-		
-		<TextView style="@style/Captions"
-			android:id="@+id/poiOpeningHoursCaption"
-        	android:text="@string/opening_hours"
-        	android:visibility="gone">
-        </TextView>
-        <TextView style="@style/PoiDescription" 
-        	android:id="@+id/poiOpeningHoursId"
-        	android:visibility="gone">
-        </TextView>
-		
-		
-		<TextView style="@style/Captions"
-			android:id="@+id/poiDescriptionCaption"
-        	android:text="@string/description"
-        	android:visibility="gone">
-        </TextView>
-        <TextView style="@style/PoiDescription" 
-        	android:id="@+id/poiDescriptionId"
-        	android:visibility="gone">
-        </TextView>
-	</LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/poiNameTextView"
+                style="@style/PoiNameText"
+                android:layout_toRightOf="@id/poiIcon"/>
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Captions"
+            android:text="@string/place_of_interest_type"/>
+
+        <TableLayout
+            style="@style/PoiTypeControlLayout"
+            android:clickable="true">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TypeControlCaptionText"
+                    android:text="@string/type"/>
+
+                <TextView
+                    android:id="@+id/poiCategoryTextView"
+                    style="@style/PoiTypeText"
+                    android:text=""/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TypeControlCaptionText"
+                    android:text="@string/sub_type"/>
+
+                <TextView
+                    android:id="@+id/poiTypeTextView"
+                    style="@style/PoiTypeText"
+                    android:text=""/>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/poiAddressCaption"
+            style="@style/Captions"
+            android:text="@string/address_information"
+            android:visibility="gone"/>
+
+        <TableLayout
+            android:id="@+id/poiAddressControl"
+            style="@style/PoiTypeControlLayout"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TypeControlCaptionText"
+                    android:text="@string/street"/>
+
+                <TextView
+                    android:id="@+id/poiAddrStreet"
+                    style="@style/PoiTypeText"
+                    android:text=""/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/TypeControlCaptionText"
+                    android:text="@string/housenumber"/>
+
+                <TextView
+                    android:id="@+id/poiAddrHousenumber"
+                    style="@style/PoiTypeText"
+                    android:text=""/>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/poiContactsCaption"
+            style="@style/Captions"
+            android:text="@string/contacts"
+            android:visibility="gone"/>
+
+        <TableLayout
+            android:id="@+id/poiContactsControl"
+            style="@style/PoiTypeControlLayout"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <TableRow android:id="@+id/poiWebsiteTableRow">
+
+                <TextView
+                    style="@style/TypeControlCaptionText"
+                    android:text="@string/website"/>
+
+                <TextView
+                    android:id="@+id/poiWebsiteId"
+                    style="@style/PoiTypeText"/>
+            </TableRow>
+
+            <TableRow android:id="@+id/poiPhoneTableRow">
+
+                <TextView
+                    style="@style/TypeControlCaptionText"
+                    android:text="@string/phone_number"/>
+
+                <TextView
+                    android:id="@+id/poiPhoneId"
+                    style="@style/PoiTypeText"/>
+            </TableRow>
+        </TableLayout>
+
+
+        <TextView
+            android:id="@+id/poiOpeningHoursCaption"
+            style="@style/Captions"
+            android:text="@string/opening_hours"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/poiOpeningHoursId"
+            style="@style/PoiDescription"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/poiDescriptionCaption"
+            style="@style/Captions"
+            android:text="@string/description"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/poiDescriptionId"
+            style="@style/PoiDescription"
+            android:visibility="gone"/>
+    </LinearLayout>
 
 </ScrollView>

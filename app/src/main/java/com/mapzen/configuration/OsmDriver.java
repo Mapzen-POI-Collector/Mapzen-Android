@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,12 +22,12 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
 /**
- * 
+ *
  */
 package com.mapzen.configuration;
 
@@ -59,120 +59,119 @@ import android.util.Log;
 
 /**
  * @author Vitalii Grygoruk
- * 
+ *
  */
 public class OsmDriver {
 
-	private static OsmDriver _instance;
+    private static OsmDriver _instance;
 
-	private static ArrayList<TypeItem> _nodeTypes;
+    private static ArrayList<TypeItem> _nodeTypes;
 
-	private static SAXParserFactory spf;
-	private SAXParser sp;
+    private static SAXParserFactory spf;
+    private SAXParser sp;
 
-	private static HashMap<String, ArrayList<String>> categoryToTypeMapping;
+    private static HashMap<String, ArrayList<String>> categoryToTypeMapping;
 
-	public static OsmDriver getInstance() {
-		if (_instance == null) {
-			_instance = new OsmDriver();
-		}
-		return _instance;
-	}
+    public static OsmDriver getInstance() {
+        if (_instance == null) {
+            _instance = new OsmDriver();
+        }
+        return _instance;
+    }
 
-	private OsmDriver() {
-		spf = SAXParserFactory.newInstance();
-		try {
-			sp = spf.newSAXParser();
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-		
-		_nodeTypes = new ArrayList<TypeItem>();
-	}
+    private OsmDriver() {
+        spf = SAXParserFactory.newInstance();
+        try {
+            sp = spf.newSAXParser();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
 
-	public void addType(TypeItem type) {
-		_nodeTypes.add(type);
-	}
-	
-	public List<String> getCategories() {
-		List<String> categoriesList = new ArrayList<String>(categoryToTypeMapping.keySet());
-		Collections.sort(categoriesList);
-		return categoriesList;
-	}
-	
-	public List<String> getTypes(String category) {
-		List<String> typesList = categoryToTypeMapping.get(category); 
-		Collections.sort(typesList);
-		return typesList;
-	}
+        _nodeTypes = new ArrayList<TypeItem>();
+    }
 
-	public void init(InputStream typesInputStream, InputStream categoryToTypeInputStream) {
-		try {
-			XMLReader xmlReader = sp.getXMLReader();
-			PoiTypesConfigurationHandler handler = new PoiTypesConfigurationHandler();
-			xmlReader.setContentHandler(handler);
-			InputSource ins = new InputSource(
-					new InputStreamReader(typesInputStream, "UTF-8"));
-			ins.setEncoding("UTF-8");
-			xmlReader.parse(ins);
-			
-			
-			PoiCategoriesConfigurationHandler handler2 = new PoiCategoriesConfigurationHandler();
-			xmlReader.setContentHandler(handler2);
-			ins = new InputSource(
-					new InputStreamReader(categoryToTypeInputStream, "UTF-8"));
-			ins.setEncoding("UTF-8");
-			xmlReader.parse(ins);
-			categoryToTypeMapping = handler2.getMapping();
-			
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    public void addType(TypeItem type) {
+        _nodeTypes.add(type);
+    }
 
-		Log.d("TAG", "initialization finished");
-	}
+    public List<String> getCategories() {
+        List<String> categoriesList = new ArrayList<String>(categoryToTypeMapping.keySet());
+        Collections.sort(categoriesList);
+        return categoriesList;
+    }
 
-	public synchronized String resolveType(Map<String, String> tags) {
-		for (TypeItem type : _nodeTypes) {
-			if(type.match(tags)) {
-				return type.getName();
-			}
-		}
-		return null;
-	}
+    public List<String> getTypes(String category) {
+        List<String> typesList = categoryToTypeMapping.get(category);
+        Collections.sort(typesList);
+        return typesList;
+    }
 
-	public List<TagItem> getTagging(String type) {
-		for (TypeItem typeItem : _nodeTypes) {
-			if(typeItem.getName().equals(type))
-				return typeItem.getTagging();
-		}
-		return null;
-	}
-	
-	public String getCategory(String type) {
-		// TODO Very unefficient code
-		String category = "unknown";
-		for (Entry<String, ArrayList<String>> entry : categoryToTypeMapping.entrySet()) {
-			for (String item : entry.getValue()) {
-				if (item.equals(type))
-					category = entry.getKey();
-			}
-		}
-		return category;
-	}
-	
-	public String getFullName(String typeShortName) {
-		return ResourceManager.getInstance().getStringResource(typeShortName);
-	}
-	
-	public String getCategoryFullName(String typeShortName) {
-		return getFullName(getCategory(typeShortName));
-	}
-	
+    public void init(InputStream typesInputStream, InputStream categoryToTypeInputStream) {
+        try {
+            XMLReader xmlReader = sp.getXMLReader();
+            PoiTypesConfigurationHandler handler = new PoiTypesConfigurationHandler();
+            xmlReader.setContentHandler(handler);
+            InputSource ins = new InputSource(
+                    new InputStreamReader(typesInputStream, "UTF-8"));
+            ins.setEncoding("UTF-8");
+            xmlReader.parse(ins);
+
+
+            PoiCategoriesConfigurationHandler handler2 = new PoiCategoriesConfigurationHandler();
+            xmlReader.setContentHandler(handler2);
+            ins = new InputSource(
+                    new InputStreamReader(categoryToTypeInputStream, "UTF-8"));
+            ins.setEncoding("UTF-8");
+            xmlReader.parse(ins);
+            categoryToTypeMapping = handler2.getMapping();
+
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Log.d("TAG", "initialization finished");
+    }
+
+    public synchronized String resolveType(Map<String, String> tags) {
+        for (TypeItem type : _nodeTypes) {
+            if(type.match(tags)) {
+                return type.getName();
+            }
+        }
+        return null;
+    }
+
+    public List<TagItem> getTagging(String type) {
+        for (TypeItem typeItem : _nodeTypes) {
+            if(typeItem.getName().equals(type))
+                return typeItem.getTagging();
+        }
+        return null;
+    }
+
+    public String getCategory(String type) {
+        // TODO Very unefficient code
+        String category = "unknown";
+        for (Entry<String, ArrayList<String>> entry : categoryToTypeMapping.entrySet()) {
+            for (String item : entry.getValue()) {
+                if (item.equals(type))
+                    category = entry.getKey();
+            }
+        }
+        return category;
+    }
+
+    public String getFullName(String typeShortName) {
+        return ResourceManager.getInstance().getStringResource(typeShortName);
+    }
+
+    public String getCategoryFullName(String typeShortName) {
+        return getFullName(getCategory(typeShortName));
+    }
 }

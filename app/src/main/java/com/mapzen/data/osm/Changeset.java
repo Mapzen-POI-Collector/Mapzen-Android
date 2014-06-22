@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,7 +22,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
@@ -33,24 +33,24 @@ import com.mapzen.data.SettingsManager;
 
 
 /**
- * Represents a changeset, used for data upload. 
+ * Represents a changeset, used for data upload.
  *
  */
 public final class Changeset implements MapzenConstants {
- 
+
 	@SuppressWarnings("unused")
 	private static final String TAG = Changeset.class.getSimpleName();
-	
+
 	private long _id;
     private boolean _open;
     private static Changeset _instance;
-    
+
     public static Changeset getInstance() {
     	if (_instance == null)
     		_instance = new Changeset();
     	return _instance;
     }
-    
+
     private Changeset() {
     	_open = false;
     	_id = -1;
@@ -75,14 +75,14 @@ public final class Changeset implements MapzenConstants {
     public boolean isNew() {
         return _id <= 0;
     }
-    
+
     public void loadFromPrefs() {
 		Long id = SettingsManager.getInstance().getLong("current_changeset", -1l);
 		Boolean isOpen = SettingsManager.getInstance().getBoolean("current_changeset_state", false);
 		setId(id);
 		setOpen(isOpen);
 	}
-	
+
 	public void saveToPrefs() {
 		SettingsManager.getInstance().putLong("current_changeset", getId());
 		SettingsManager.getInstance().putBoolean("current_changeset_state", isOpen());

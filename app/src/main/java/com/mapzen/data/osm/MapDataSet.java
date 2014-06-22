@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,7 +22,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
@@ -35,9 +35,9 @@ public class MapDataSet {
 	private HashMap<Long,OsmNode> nodes;
 	private List<OsmWay> ways;
 	private List<OsmRelation> relations;
-	
+
 	private boolean has_errors = false;
-	
+
 	public MapDataSet(HashMap<Long, OsmNode> mPoiList, List<OsmWay> mWaysList,
 			List<OsmRelation> mRelationsList) {
 		nodes = mPoiList;
@@ -45,7 +45,6 @@ public class MapDataSet {
 		relations = mRelationsList;
 	}
 	public MapDataSet() {
-		
 	}
 	public HashMap<Long, OsmNode> getNodes() {
 		return nodes;
@@ -56,11 +55,11 @@ public class MapDataSet {
 	public List<OsmRelation> getRelations() {
 		return relations;
 	}
-	
+
 	public void setError(boolean error) {
 		has_errors = error;
 	}
-	
+
 	public boolean hasErrors() {
 		return has_errors;
 	}

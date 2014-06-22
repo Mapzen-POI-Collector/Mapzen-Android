@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,7 +22,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
@@ -55,7 +55,7 @@ public class OsmWriter extends XmlWriter implements MapzenConstants {
     public OsmWriter(PrintWriter out) {
         super(out);
     }
-    
+
     public void setChangeset(Changeset cs) {
         this.changeset = cs;
     }
@@ -72,30 +72,30 @@ public class OsmWriter extends XmlWriter implements MapzenConstants {
         out.println("</osm>");
     }
 
-	public void osmChangeHeader() {
+    public void osmChangeHeader() {
         out.println("<?xml version='1.0' encoding='UTF-8'?>");
         out.print("<osmChange version='");
         out.print(OSM_API_VERSION);
         out.print("' generator='");
         out.print(OSM_CREATOR_INFO);
         out.println("'>");
-	}
+    }
 
-	public void osmChangeActionOpen(String action) {
-		out.println("  <"+action+">");
-	}
-	
-	public void osmChangeActionClose(String action) {
-		out.println("  </"+action+">");
-	}
-	
-	public void osmChangeFooter() {
-		out.println("</osmChange>");
-	}
-    
-    
+    public void osmChangeActionOpen(String action) {
+        out.println("  <"+action+">");
+    }
+
+    public void osmChangeActionClose(String action) {
+        out.println("  </"+action+">");
+    }
+
+    public void osmChangeFooter() {
+        out.println("</osmChange>");
+    }
+
+
     public void visit(OsmNode node) {
-        out.println("<node"); 
+        out.println("<node");
         addAttributes(node);
         out.print(">");
         addTags(node);
@@ -110,7 +110,7 @@ public class OsmWriter extends XmlWriter implements MapzenConstants {
         out.println("  </changeset>");
     }
 
-    
+
     private static final Comparator<Entry<String, String>> byKeyComparator = new Comparator<Entry<String,String>>() {
         public int compare(Entry<String, String> o1, Entry<String, String> o2) {
             return o1.getKey().compareTo(o2.getKey());
@@ -118,35 +118,35 @@ public class OsmWriter extends XmlWriter implements MapzenConstants {
     };
 
     private void addTags(OsmNode node) {
-    	String name = node.getName();
-    	String addr_h = node.get_addr_housenumber();
-    	String addr_s = node.get_addr_street();
-    	String website = node.get_website();
-    	String phone = node.get_phone();
-    	String open_hours = node.get_opening_hours();
-    	String description = node.get_description();
-    	String cmTypeName = node.getType();
-    	List<TagItem> cmTypeTags = OsmDriver.getInstance().getTagging(cmTypeName);
-    	
-    	if (name != null)
-    		out.println("    <tag k='name' v='"+XmlWriter.encode(name)+ "' />");
-    	if (addr_h != null)
-    		out.println("    <tag k='addr:housenumber' v='"+XmlWriter.encode(addr_h)+ "' />");
-    	if (addr_s != null)
-    		out.println("    <tag k='addr:street' v='"+XmlWriter.encode(addr_s)+ "' />");
-    	if (website != null)
-    		out.println("    <tag k='website' v='"+XmlWriter.encode(website)+ "' />");
-    	if (phone != null)
-    		out.println("    <tag k='phone' v='"+XmlWriter.encode(phone)+ "' />");
-    	if (open_hours != null)
-    		out.println("    <tag k='opening_hours' v='"+XmlWriter.encode(open_hours)+ "' />");
-    	if (description != null)
-    		out.println("    <tag k='description' v='"+XmlWriter.encode(description)+ "' />");
-    	for (TagItem tag : cmTypeTags) {
-    		out.println("    <tag k='"+XmlWriter.encode(tag.getKey())+"' v='"+XmlWriter.encode(tag.getValue())+ "' />");
-    	}
-    	
-    	if (node.hasTags()) {
+        String name = node.getName();
+        String addr_h = node.get_addr_housenumber();
+        String addr_s = node.get_addr_street();
+        String website = node.get_website();
+        String phone = node.get_phone();
+        String open_hours = node.get_opening_hours();
+        String description = node.get_description();
+        String cmTypeName = node.getType();
+        List<TagItem> cmTypeTags = OsmDriver.getInstance().getTagging(cmTypeName);
+
+        if (name != null)
+            out.println("    <tag k='name' v='"+XmlWriter.encode(name)+ "' />");
+        if (addr_h != null)
+            out.println("    <tag k='addr:housenumber' v='"+XmlWriter.encode(addr_h)+ "' />");
+        if (addr_s != null)
+            out.println("    <tag k='addr:street' v='"+XmlWriter.encode(addr_s)+ "' />");
+        if (website != null)
+            out.println("    <tag k='website' v='"+XmlWriter.encode(website)+ "' />");
+        if (phone != null)
+            out.println("    <tag k='phone' v='"+XmlWriter.encode(phone)+ "' />");
+        if (open_hours != null)
+            out.println("    <tag k='opening_hours' v='"+XmlWriter.encode(open_hours)+ "' />");
+        if (description != null)
+            out.println("    <tag k='description' v='"+XmlWriter.encode(description)+ "' />");
+        for (TagItem tag : cmTypeTags) {
+            out.println("    <tag k='"+XmlWriter.encode(tag.getKey())+"' v='"+XmlWriter.encode(tag.getValue())+ "' />");
+        }
+
+        if (node.hasTags()) {
             List<Entry<String, String>> entries = new ArrayList<Entry<String,String>>(node.getTags().entrySet());
             Collections.sort(entries, byKeyComparator);
             for (Entry<String, String> e : entries) {
@@ -156,7 +156,7 @@ public class OsmWriter extends XmlWriter implements MapzenConstants {
                 }
             }
         }
-        
+
     }
 
     /**
@@ -172,16 +172,16 @@ public class OsmWriter extends XmlWriter implements MapzenConstants {
         if (node.getVersion() != 0) {
             out.print(" version='"+node.getVersion()+"'");
         }
-        
+
         if (this.changeset != null && this.changeset.getId() != 0) {
             out.print(" changeset='"+this.changeset.getId()+"'" );
         }
-        
+
         out.print(" lat='"+node.getCoordinates().getLatitudeE6()/1.E6+"' lon='"+node.getCoordinates().getLongitudeE6()/1.E6+"'");
 
         Map<String, String> otherAttributes = node.getAttributes();
         for(Entry<String, String> keyValuePair : otherAttributes.entrySet()) {
-        	out.print(" "+keyValuePair.getKey()+"='"+keyValuePair.getValue()+"'");
+            out.print(" "+keyValuePair.getKey()+"='"+keyValuePair.getValue()+"'");
         }
     }
 

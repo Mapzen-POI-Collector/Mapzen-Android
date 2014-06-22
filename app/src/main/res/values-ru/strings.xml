@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unknown">Неизвестный</string>
-    
+
     <!-- screen captions -->
     <string name="app_name">Mapzen POI Collector</string>
     <string name="poi_info_screen_caption">Просмотр места</string>
     <string name="edit_poi_screen_caption">Редактирование места</string>
     <string name="select_category_screen_caption">Выберите категорию места</string>
     <string name="select_sub_type_screen_caption">Выберите тип места</string>
-    
-    
-	<!-- menu items -->
-	<string name="my_location">Где я?</string>
-	<string name="add_poi">Добавить POI</string>
-	<string name="more_menu_item">Еще</string>
-	<string name="settings">Настройки</string>
-	<string name="about">О программе</string>
-	<string name="edit_poi_menu_item">Редактировать</string>
-	
-	<!-- OsmLogin screen -->
-	<string name="button_osm_login">Авторизируйтесь в OpenStreetMap</string>
-	<string name="osm_login_page_text1">Добро пожаловать в Mapzen POI Collector</string>
-	<string name="osm_login_page_text2">
-		Mapzen POI Collector позволяет добавлять объекты в OpenStreetMap -
-		революционный проект, который создает наиболее полную и актуальную
-		карту мира.
-	</string>
-	<string name="osm_login_page_text3">
-		Чтобы использовать Mapzen POI Collector Вам необходимо иметь учетную запись OpenStreetMap.
-	</string>
-	<string name="osm_login_page_text4">Если у Вас нет учетной записи, Вы можете</string>
-	<string name="osm_login_page_text5">зарегистрироваться на openstreetmap.org</string>
-	<string name="loading">Загрузка...</string>
-	
-	<!-- Notification messages -->
-	<string name="message_gpsdisabled">GPS is disabled. Trying to use wireless network to determine your location...</string>
+
+
+    <!-- menu items -->
+    <string name="my_location">Где я?</string>
+    <string name="add_poi">Добавить POI</string>
+    <string name="more_menu_item">Еще</string>
+    <string name="settings">Настройки</string>
+    <string name="about">О программе</string>
+    <string name="edit_poi_menu_item">Редактировать</string>
+
+    <!-- OsmLogin screen -->
+    <string name="button_osm_login">Авторизируйтесь в OpenStreetMap</string>
+    <string name="osm_login_page_text1">Добро пожаловать в Mapzen POI Collector</string>
+    <string name="osm_login_page_text2">
+        Mapzen POI Collector позволяет добавлять объекты в OpenStreetMap -
+        революционный проект, который создает наиболее полную и актуальную
+        карту мира.
+    </string>
+    <string name="osm_login_page_text3">
+        Чтобы использовать Mapzen POI Collector Вам необходимо иметь учетную запись OpenStreetMap.
+    </string>
+    <string name="osm_login_page_text4">Если у Вас нет учетной записи, Вы можете</string>
+    <string name="osm_login_page_text5">зарегистрироваться на openstreetmap.org</string>
+    <string name="loading">Загрузка...</string>
+
+    <!-- Notification messages -->
+    <string name="message_gpsdisabled">GPS is disabled. Trying to use wireless network to determine your location...</string>
     <string name="message_locationunavailable">GPS and Network detection is disabled. Your current location is temporarily unavailable...</string>
     <string name="message_lastknownlocation">GPS and Network detection is disabled. Showing last known location...</string>
-    
+
     <string name="copyright_message">&#169; 2011 Openstreetmap.org &amp; contributors. CC-by-SA</string>
     <string name="about_message">Приложение использует данные карт &lt;b&gt;OpenStreetMap.org&lt;/b&gt;</string>
     <string name="crash_toast_text">Отчет об ошибке отправлен команде разработчиков</string>
-        
+
     <!-- Main screen -->
     <string name="message_will_hide">Это сообщение закроется автоматически</string>
     <string name="calloutCaptionDefault">Инфо о объекте</string>
     <string name="calloutCaptionNewPoi">Тяните, чтобы передвинуть объект</string>
     <string name="loading_pois">Загрузка данных</string>
     <string name="zoom_in_to_add_poi">Для редактирования - увеличьте карту</string>
-    
+
     <!-- "View POI Details" screen -->
     <string name="place_of_interest_type">Тип объекта</string>
     <string name="address_information">Адресс</string>
@@ -63,17 +63,17 @@
     <string name="description">Описание</string>
     <string name="not_editable_message">К сожалению Вы не можете редактировать это место. Мы планируем добавить поддержку редактирования всех типов мест в будущих версиях приложения.</string>
     <string name="lookup_poi_in_osm">Посмотреть в OSM</string>
-    
+
     <!-- "Edit POI Details" screen -->
     <string name="name_caption">Имя</string>
     <string name="saving_poi">Чтобы прервать операцию сохранения, нажмите "Отмена"</string>
     <string name="saving">Сохранение...</string>
     <string name="poi_was_moved">Объект был сдвинут</string>
-    
+
     <!-- Unsaved POI Dialog on "Edit POI Details" screen -->
     <string name="dialog_poi_unsaved">Сохранить изменения?</string>
     <string name="dialog_poi_unsaved_message">Подтвердите, если хотите сохранить изменения</string>
-    
+
     <!-- menu items -->
     <string name="delete_poi_menu_item_caption">Удалить</string>
     <string name="save_poi_menu_item_caption">Сохранить</string>
@@ -89,7 +89,7 @@
     <string name="opening_hours_hint">7/24 or Mo-Fr 08:30-20:00</string>
     <string name="poi_is_invalid">Невозможно сохранить место, которое не имеет типа. Пожалуйста выберите тип и попробуйте снова.</string>
     <string name="download_osm_data">Загрузить объекты</string>
-    
+
     <!-- "About" dialog -->
     <string name="places_added_edited_deleted">Доб./Ред./Удал.:</string>
     <string name="dialog_copyright_message">Данные карт &#169; 2011 OpenStreetMap.org Contributors. На правах лицензии Creative Commons Attribution Share Alike 2.0.</string>
@@ -100,15 +100,15 @@
     <string name="dialog_err_ms_no_osm_connection_title">Неудачная авторизация</string>
     <string name="dialog_err_msg_no_osm_connection">К сожалению, Mapzen POI Collector не может соединиться с OpenStreetMap сервером. Пожалуйста проверьте настройки 3G / WiFi</string>
     <string name="dialog_check_network_settings">Настройки</string>
-    
+
     <!-- PreferenceActivity -->
     <string name="preferences_user_statistics">Статистика</string>
     <string name="preferences_tiles_cache">Данные и кеш</string>
     <string name="clear_map_tiles_cache">Очистить кеш карт</string>
-	<string name="current_cache_size">Текущий размер кеша</string>
-	<string name="removing_cache">Удаление кеша карт...</string>
-	<string name="failed_to_remove_cache">При удалении кеша возникла ошибка. Некоторые файлы не были удалены</string>
-	<string name="osm_data_download_method">Авто загрузка данных</string>
-	<string name="osm_data_download_automatic">Объекты будут загружаться автоматически при передвижении карты</string>
-	<string name="osm_data_download_manual">Для загрузки объектов необходимо нажать "Меню -> Загрузить объекты" </string>
+    <string name="current_cache_size">Текущий размер кеша</string>
+    <string name="removing_cache">Удаление кеша карт...</string>
+    <string name="failed_to_remove_cache">При удалении кеша возникла ошибка. Некоторые файлы не были удалены</string>
+    <string name="osm_data_download_method">Авто загрузка данных</string>
+    <string name="osm_data_download_automatic">Объекты будут загружаться автоматически при передвижении карты</string>
+    <string name="osm_data_download_manual">Для загрузки объектов необходимо нажать "Меню -> Загрузить объекты" </string>
 </resources>

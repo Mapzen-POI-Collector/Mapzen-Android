@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,7 +22,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
@@ -48,46 +48,46 @@ import android.widget.TextView;
 
 public class PoiSubTypesListActivity extends ListActivity implements MapzenConstants {
 
-	private PoiSubTypesAdapter _adapter;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.poi_categories_list);
-		
-		String category = getIntent().getStringExtra("category");
-		if (category == null) {
-			setResult(RESULT_CANCELED);
-			finish();
-		} else {
-			List<String> subTypes = OsmDriver.getInstance().getTypes(category);
-			_adapter = new PoiSubTypesAdapter(getApplicationContext(), R.layout.categories_list_view_row, subTypes);
-			setListAdapter(_adapter);
-		}
-	}
-	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		String subTypeName = _adapter.getItem(position);
-		
-		Intent i = new Intent();
-		i.putExtra("type", subTypeName);
-		setResult(RESULT_OK,i);
-		finish();
-		
-				
-	}
+    private PoiSubTypesAdapter _adapter;
 
-	private class PoiSubTypesAdapter extends ArrayAdapter<String> {
-		
-		public PoiSubTypesAdapter(Context context, int textViewResourceId, List<String> subTypes) {
-			super(context, textViewResourceId, subTypes);
-		}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			  View v = convertView;
+        setContentView(R.layout.poi_categories_list);
+
+        String category = getIntent().getStringExtra("category");
+        if (category == null) {
+            setResult(RESULT_CANCELED);
+            finish();
+        } else {
+            List<String> subTypes = OsmDriver.getInstance().getTypes(category);
+            _adapter = new PoiSubTypesAdapter(getApplicationContext(), R.layout.categories_list_view_row, subTypes);
+            setListAdapter(_adapter);
+        }
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        String subTypeName = _adapter.getItem(position);
+
+        Intent i = new Intent();
+        i.putExtra("type", subTypeName);
+        setResult(RESULT_OK,i);
+        finish();
+
+
+    }
+
+    private class PoiSubTypesAdapter extends ArrayAdapter<String> {
+
+        public PoiSubTypesAdapter(Context context, int textViewResourceId, List<String> subTypes) {
+            super(context, textViewResourceId, subTypes);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+              View v = convertView;
               if (v == null) {
                   LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                   v = vi.inflate(R.layout.categories_list_view_row, null);
@@ -99,11 +99,11 @@ public class PoiSubTypesListActivity extends ListActivity implements MapzenConst
                       nameView.setText(ResourceManager.getInstance().getStringResource(c));
                       ImageView imageView = (ImageView) v.findViewById(R.id.categoryListViewItemIconId);
                       imageView.setImageDrawable(ResourceManager.getInstance().getDrawableAsset("icons_50x36/"+c+".png"));
-                      
+
               }
               return v;
-		}
+        }
 
-		
-	}
+
+    }
 }

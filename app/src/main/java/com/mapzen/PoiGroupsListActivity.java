@@ -2,13 +2,13 @@
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -22,7 +22,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 */
 
@@ -48,56 +48,56 @@ import android.widget.TextView;
 
 public class PoiGroupsListActivity extends ListActivity implements MapzenConstants {
 
-	private PoiGroupsAdapter poiGroupsListAdapter;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.poi_categories_list);
-		
-		List<String> categories = OsmDriver.getInstance().getCategories();
-		poiGroupsListAdapter = new PoiGroupsAdapter(getApplicationContext(), R.layout.categories_list_view_row, categories);
-		setListAdapter(poiGroupsListAdapter);
-		
-	}
-	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-		
-		String category_name = poiGroupsListAdapter.getItem(position);
-		
-		Intent i = new Intent(this.getApplicationContext(),PoiSubTypesListActivity.class);
-		i.putExtra("category", category_name);
-		startActivityForResult(i, SELECT_POI_SUB_TYPE_REQUEST_CODE);
-		
-	}
+    private PoiGroupsAdapter poiGroupsListAdapter;
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		
-		switch (requestCode) {
-		case SELECT_POI_SUB_TYPE_REQUEST_CODE:
-			if (resultCode == RESULT_OK) {
-				this.setResult(RESULT_OK, data);
-				this.finish();
-			}
-			break;
-		default:
-			break;
-		}
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	private class PoiGroupsAdapter extends ArrayAdapter<String> {
-			
-		public PoiGroupsAdapter(Context context, int textViewResourceId, List<String> categories) {
-			super(context, textViewResourceId, categories);
-		}
+        setContentView(R.layout.poi_categories_list);
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			  View v = convertView;
+        List<String> categories = OsmDriver.getInstance().getCategories();
+        poiGroupsListAdapter = new PoiGroupsAdapter(getApplicationContext(), R.layout.categories_list_view_row, categories);
+        setListAdapter(poiGroupsListAdapter);
+
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        String category_name = poiGroupsListAdapter.getItem(position);
+
+        Intent i = new Intent(this.getApplicationContext(),PoiSubTypesListActivity.class);
+        i.putExtra("category", category_name);
+        startActivityForResult(i, SELECT_POI_SUB_TYPE_REQUEST_CODE);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch (requestCode) {
+        case SELECT_POI_SUB_TYPE_REQUEST_CODE:
+            if (resultCode == RESULT_OK) {
+                this.setResult(RESULT_OK, data);
+                this.finish();
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
+    private class PoiGroupsAdapter extends ArrayAdapter<String> {
+
+        public PoiGroupsAdapter(Context context, int textViewResourceId, List<String> categories) {
+            super(context, textViewResourceId, categories);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+              View v = convertView;
               if (v == null) {
                   LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                   v = vi.inflate(R.layout.categories_list_view_row, null);
@@ -108,11 +108,11 @@ public class PoiGroupsListActivity extends ListActivity implements MapzenConstan
                       nameView.setText(ResourceManager.getInstance().getStringResource(c));
                       ImageView imageView = (ImageView) v.findViewById(R.id.categoryListViewItemIconId);
                       imageView.setImageDrawable(ResourceManager.getInstance().getDrawableAsset("categories_large/"+c+".png"));
-                      
+
               }
               return v;
-		}
+        }
 
-		
-	}
+
+    }
 }

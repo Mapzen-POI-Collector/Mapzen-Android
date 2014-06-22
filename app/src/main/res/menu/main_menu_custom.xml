@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/refresh_osm_data_menu_item_id"
-    	android:title="@string/download_osm_data"
-    	android:icon="@drawable/ic_menu_refresh">
+    <item
+        android:id="@+id/refresh_osm_data_menu_item_id"
+        android:icon="@drawable/ic_menu_refresh"
+        android:title="@string/download_osm_data"></item>
+    <item
+        android:id="@+id/add_poi"
+        android:icon="@drawable/ic_menu_add"
+        android:title="@string/add_poi" />
+    <item
+        android:id="@+id/more_menu_item_id"
+        android:icon="@drawable/ic_menu_more"
+        android:title="@string/more_menu_item">
+        <menu>
+            <item
+                android:id="@+id/my_location"
+                android:icon="@drawable/ic_menu_mylocation"
+                android:title="@string/my_location" />
+            <item
+                android:id="@+id/settings_menu_item_id"
+                android:icon="@drawable/ic_menu_preferences"
+                android:title="@string/settings" />
+            <item
+                android:id="@+id/about_application"
+                android:icon="@drawable/ic_menu_info_details"
+                android:title="@string/about" />
+        </menu>
     </item>
-    <item android:id="@+id/add_poi"
-    	  android:title="@string/add_poi"
-    	  android:icon="@drawable/ic_menu_add" />   
-    <item android:id="@+id/more_menu_item_id" 
-    	  android:title="@string/more_menu_item"
-    	  android:icon="@drawable/ic_menu_more">
-    	  <menu>
-    	  		<item android:id="@+id/my_location"
-          			  android:title="@string/my_location"
-          			  android:icon="@drawable/ic_menu_mylocation"/>
-    	  		<item android:id="@+id/settings_menu_item_id"
-   		  			  android:title="@string/settings"
-   		  			  android:icon="@drawable/ic_menu_preferences"/>
-    	  		<item android:id="@+id/about_application"
-   		  			  android:title="@string/about"
-   		  			  android:icon="@drawable/ic_menu_info_details"/>
-    	  </menu>
-    </item>  	
 </menu>

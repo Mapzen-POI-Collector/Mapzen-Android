@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" 
-	android:layout_height="wrap_content"
-	android:padding="6dip">
-	<TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:id="@+id/ViewPoiDetailsListViewLabelId"
-		android:singleLine="true" 
-		android:ellipsize="marquee"
-		android:textStyle="normal"
-		android:text="type goes here"
-		android:textAppearance="?android:attr/textAppearanceLarge"/>
-	<TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:id="@+id/ViewPoiDetailsListViewValueId"
-		android:layout_below="@id/ViewPoiDetailsListViewLabelId" 
-		android:textStyle="normal"
-		android:text="value goes here"
-		android:textAppearance="?android:attr/textAppearanceSmall"/>
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip">
+
+    <TextView
+        android:id="@+id/ViewPoiDetailsListViewLabelId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="type goes here"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/ViewPoiDetailsListViewValueId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ViewPoiDetailsListViewLabelId"
+        android:text="value goes here"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="normal" />
 </RelativeLayout>
