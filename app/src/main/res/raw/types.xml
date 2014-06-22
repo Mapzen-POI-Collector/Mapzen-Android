@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<types>
+    
+	<anytype name="undefined" priority="-1"/>
+	
+	
+    <!--Auto-->
+    
+    <type name="auto_dealer">
+    
+        <or>
+            <tag key="shop" value="car"/>
+            <tag key="shop" value="car_dealer"/>
+        </or>
+        <default>
+            <tag key="shop" value="car"/>
+        </default>
+    </type>
+    <type name="auto_parts">
+        <or>
+            <tag key="shop" value="car_parts"/>
+            <tag key="shop" value="tyres"/>
+            <tag key="shop" value="tires"/>
+            <tag key="shop" value="auto_parts"/>
+        </or>
+        <default>
+            <tag key="shop" value="car_parts"/>
+        </default>
+    </type>
+    <type name="car_rental">
+        <tag key="amenity" value="car_rental"/>
+    </type>
+    <type name="car_repair">
+        <tag key="shop" value="car_repair"/>
+    </type>
+    <type name="car_sharing">
+        <tag key="amenity" value="car_sharing"/>
+    </type>
+    <type name="car_wash">
+        <tag key="amenity" value="car_wash"/>
+    </type>
+    <type name="motorcycle_dealer">
+        <tag key="shop" value="motorcycle"/>
+    </type>
+    <type name="parking">
+        <tag key="amenity" value="parking"/>
+    </type>
+    <type name="fuel_station">
+        <tag key="amenity" value="fuel"/>
+    </type>
+    
+    
+    <!--Education-->
+    
+    <type name="college">
+        <tag key="amenity" value="college"/>
+    </type>
+    <type name="school">
+     <or>
+        <tag key="amenity" value="school"/>
+        <tag key="amenity" value="language_school"/>
+     </or>
+      <default>
+        <tag key="amenity" value="school"/>
+      </default>
+    </type>
+    <type name="kindergarten">
+        <tag key="amenity" value="kindergarten"/>
+    </type>
+    <type name="university">
+        <tag key="amenity" value="university"/>
+    </type>
+    
+    
+    <!--Food and Drinks-->
+    
+    <type name="bakery">
+        <or>
+            <tag key="shop" value="bakery"/>
+            <tag key="shop" value="patisserie"/>
+        </or>
+        <default>
+            <tag key="shop" value="bakery"/>
+        </default>
+    </type>
+    <type name="cafe">
+        <or>
+            <tag key="amenity" value="cafe"/>
+            <tag key="amenity" value="coffee"/>
+        </or>
+        <default>
+            <tag key="amenity" value="cafe"/>
+        </default>
+    </type>
+    <type name="fast_food">
+        <tag key="amenity" value="fast_food"/>
+    </type>
+    <type name="pub">
+        <or>
+            <tag key="amenity" value="pub"/>
+            <tag key="amenity" value="bar"/>
+            <tag key="amenity" value="biergarten"/>
+        </or>
+        <default>
+            <tag key="amenity" value="pub"/>
+        </default>
+    </type>
+    <type name="restaurant">
+        <or>
+            <tag key="amenity" value="restaurant"/>
+            <and>
+                <tag key="amenity" value="restaurant"/>
+                <tag key="cuisine" value="*"/>
+            </and>
+            
+        </or>
+        <default>
+            <tag key="amenity" value="restaurant"/>
+        </default>
+    </type>
+    
+    
+    <!--Government-->
+    
+    <type name="border_crossing">
+        <or>
+            <tag key="amenity" value="border_control"/>
+            <tag key="amenity" value="border_crossing"/>
+        </or>
+        <default>
+            <tag key="amenity" value="border_control"/>
+        </default>
+    </type>
+    <type name="city_hall">
+        <or>
+            <tag key="amenity" value="townhall"/>
+            <tag key="amenity" value="village_hal"/>
+            <tag key="amenity" value="mairie"/>
+            <tag key="amenity" value="city_hall"/>
+        </or>
+        <default>
+            <tag key="amenity" value="townhall"/>
+        </default>
+    </type>
+    <type name="court">
+        <tag key="amenity" value="courthouse"/>
+    </type>
+    <type name="embassy">
+        <tag key="amenity" value="embassy"/>
+    </type>
+    <type name="fire_station">
+        <tag key="amenity" value="fire_station"/>
+    </type>
+    <type name="police">
+        <tag key="amenity" value="police"/>
+    </type>
+    <type name="prison">
+        <tag key="amenity" value="prison"/>
+    </type>
+    
+    
+    <!--Health Care and Veterinary-->
+    
+    <type name="dentist">
+        <or>
+            <tag key="amenity" value="dentist"/>
+            <tag key="amenity" value="dentists"/>
+        </or>
+        <default>
+            <tag key="amenity" value="dentist"/>
+        </default>
+    </type>
+    <type name="doctor">
+        <or>
+            <tag key="amenity" value="doctors"/>
+            <tag key="amenity" value="doctor"/>
+        </or>
+        <default>
+            <tag key="amenity" value="doctors"/>
+        </default>
+    </type>
+    <type name="hospital">
+        <or>
+            <tag key="amenity" value="hospital"/>
+            <tag key="amenity" value="medial_centre"/>
+            <tag key="amenity" value="surgery"/>
+        </or>
+        <default>
+            <tag key="amenity" value="hospital"/>
+        </default>
+    </type>
+    <type name="pharmacy">
+      <or>  
+        <tag key="shop" value="chemist"/>
+        <tag key="amenity" value="pharmacy"/>
+      </or>
+      <default>
+        <tag key="amenity" value="pharmacy"/>
+      </default>
+    </type>
+    <type name="veterinary">
+        <tag key="amenity" value="veterinary"/>
+    </type>
+    
+    
+    <!--Lifestyle, leisure and entertainment-->
+    
+    <type name="arts_centre">
+        <or>
+            <tag key="amenity" value="arts_centre"/>
+            <tag key="amenity" value="art_centre"/>
+        </or>
+        <default>
+            <tag key="amenity" value="arts_centre"/>
+        </default>
+    </type>
+    <type name="cinema">
+        <tag key="amenity" value="cinema"/>
+    </type>
+    <type name="library">
+        <tag key="amenity" value="library"/>
+    </type>
+    <type name="museum">
+        <tag key="tourism" value="museum"/>
+    </type>
+    <type name="water_park">
+        <tag key="leisure" value="water_park"/>
+    </type>
+    <type name="nightclub">
+        <tag key="amenity" value="nightclub"/>
+    </type>
+    <type name="artwork">
+        <tag key="tourism" value="artwork"/>
+    </type>
+    <type name="theatre">
+        <tag key="amenity" value="theatre"/>
+    </type>
+    <type name="theme_park">
+        <tag key="tourism" value="theme_park"/>
+    </type>
+    <type name="zoo">
+        <tag key="tourism" value="zoo"/>
+    </type>
+    
+    
+    <!--Recreation & sightseeing-->
+    
+    <type name="aerialway_station">
+        <tag key="aerialway" value="station"/>
+    </type>
+    <type name="archaeological_site">
+        <tag key="historic" value="archaeological_site"/>
+    </type>
+    <type name="beach">
+        <tag key="natural" value="beach"/>
+    </type>
+    <type name="cable_car">
+        <tag key="aerialway" value="cable_car"/>
+    </type>
+    <type name="castle">
+        <tag key="historic" value="castle"/>
+    </type>
+    <type name="cave_entrance">
+        <tag key="natural" value="cave_entrance"/>
+    </type>
+    <type name="fishing">
+        <tag key="leisure" value="fishing"/>
+    </type>
+    <type name="fountain">
+        <tag key="amenity" value="fountain"/>
+    </type>
+    <type name="garden">
+        <tag key="leisure" value="garden"/>
+    </type>
+    <type name="glacier">
+        <tag key="natural" value="glacier"/>
+    </type>
+    <type name="information">
+        <tag key="tourism" value="information"/>
+    </type>
+    <type name="memorial">
+        <tag key="historic" value="memorial"/>
+    </type>
+    <type name="monument">
+        <tag key="historic" value="monument"/>
+    </type>
+    <type name="marina">
+        <tag key="leisure" value="marina"/>
+    </type>
+    <type name="nature_reserve">
+        <tag key="leisure" value="nature_reserve"/>
+    </type>
+    <type name="park">
+        <tag key="leisure" value="park"/>
+    </type>
+    <type name="peak">
+        <tag key="natural" value="peak"/>
+    </type>
+    <type name="picnic_site">
+        <tag key="tourism" value="picnic_site"/>
+    </type>
+    <type name="recreation_ground">
+        <tag key="landuse" value="recreation_ground"/>
+    </type>
+    <type name="ruins">
+        <tag key="historic" value="ruins"/>
+    </type>
+    <type name="tree">
+        <tag key="natural" value="tree"/>
+    </type>
+    <type name="spring">
+        <tag key="natural" value="spring"/>
+    </type>
+    <type name="tower">
+        <tag key="man_made" value="tower"/>
+    </type>
+    <type name="viewpoint">
+        <tag key="tourism" value="viewpoint"/>
+    </type>
+    <type name="volcano">
+        <tag key="natural" value="volcano"/>
+    </type>
+    <type name="watermill">
+        <tag key="man_made" value="watermill"/>
+    </type>
+    
+    
+    <!--Religion & Spirituality-->
+    
+    <type name="place_of_worship">
+        <or>
+            <tag key="amenity" value="place_of_worship"/>
+            <tag key="religion" value="*"/>
+            <tag key="amenity" value="monastery"/>
+            <tag key="amenity" value="chapel"/>
+            <tag key="monastery" value="yes"/>
+        </or>
+        <default>
+            <tag key="amenity" value="place_of_worship"/>
+        </default>
+    </type>
+    
+    
+    <!--Travel and Accommodation-->
+    
+    <type name="camp_site">
+        <or>
+            <tag key="tourism" value="camp_site"/>
+            <tag key="tourism" value="caravan_site"/>
+        </or>
+        <default>
+            <tag key="tourism" value="camp_site"/>
+        </default>
+    </type>
+    <type name="guest_house">
+        <tag key="tourism" value="guest_house"/>
+    </type>
+    <type name="hotel">
+        <tag key="tourism" value="hotel"/>
+    </type>
+    <type name="hostel">
+        <tag key="tourism" value="hostel"/>
+    </type>
+    <type name="motel">
+        <tag key="tourism" value="motel"/>
+    </type>
+    <type name="chalet">
+        <tag key="tourism" value="chalet"/>
+    </type>
+    
+    
+    <!--Shopping-->
+    
+    <type name="supermarket">
+        <tag key="shop" value="supermarket"/>
+    </type>
+    <type name="convenience">
+        <tag key="shop" value="convenience"/>
+    </type>
+    <type name="department_store">
+        <or>
+            <tag key="shop" value="department_store"/>
+            <tag key="shop" value="dept"/>
+            <tag key="shop" value="yes"/>
+            <tag key="shop" value="pastry"/>
+        </or>
+        <default>
+            <tag key="shop" value="department_store"/>
+        </default>
+    </type>
+    
+    
+    <!-- Apparel and accessories -->
+    
+    <type name="clothes">
+        <tag key="shop" value="clothes"/>
+    </type>
+    
+    <type name="shoes">
+        <tag key="shop" value="shoes"/>
+    </type>
+    
+    
+    <!-- Books, music & video -->
+    
+    <type name="books">
+        <tag key="shop" value="books"/>
+    </type>
+    <type name="stationery">
+        <or>
+            <tag key="shop" value="stationery"/>
+            <tag key="shop" value="office_supplies"/>
+            <tag key="shop" value="stationary"/>
+        </or>
+        <default>
+            <tag key="shop" value="stationery"/>
+        </default>
+    </type>
+    <type name="music_video">
+        <or>
+            <tag key="shop" value="audio_video"/>
+            <tag key="shop" value="video"/>
+            <tag key="shop" value="music"/>
+            <tag key="shop" value="trumpet"/>
+            <tag key="shop" value="records"/>
+        </or>
+        <default>
+            <tag key="shop" value="audio_video"/>
+        </default>
+    </type>
+    
+    
+    <!-- Computers and consumer electronic equipment -->
+    
+    <type name="computers">
+        <tag key="shop" value="computer"/>
+    </type>
+    <type name="electronics">
+         <tag key="shop" value="electronics"/>
+    </type>
+    <type name="photo">
+        <or>
+            <tag key="shop" value="photo"/>
+            <tag key="shop" value="photography"/>
+        </or>
+        <default>
+            <tag key="shop" value="photo"/>
+        </default>
+    </type>
+    <type name="phone">
+        <or>
+            <tag key="shop" value="phone"/>
+            <tag key="shop" value="telephone"/>
+        </or>
+        <default>
+            <tag key="shop" value="phone"/>
+        </default>
+    </type>
+    <type name="mobile">
+          <or>
+            <tag key="shop" value="mobile_phone"/>
+            <tag key="shop" value="mobile"/>
+         </or>
+        <default>
+            <tag key="shop" value="mobile_phone"/>
+        </default>
+    </type>
+    
+    <!-- Food, drink and tobacco -->    
+    
+    <type name="alcohol">
+        <or>
+            <tag key="shop" value="alcohol"/>
+            <tag key="shop" value="wine"/>
+            <tag key="shop" value="beverages"/>
+        </or>
+        <default>
+            <tag key="shop" value="alcohol"/>
+        </default>
+    </type>
+    
+    <type name="butcher">
+        <tag key="shop" value="butcher"/>
+    </type>
+    <type name="confectionery">
+        <or>
+            <tag key="shop" value="confectionery"/>
+            <tag key="shop" value="candy"/>
+            <tag key="shop" value="chocolate"/>
+        </or>
+        <default>
+            <tag key="shop" value="confectionery"/>
+        </default>
+    </type>
+    <type name="organic">
+        <tag key="shop" value="organic"/>
+    </type>
+       
+    
+    <!-- Household -->
+    
+    <type name="furniture">
+        <tag key="shop" value="furniture"/>
+    </type>
+    <type name="textile">
+        <tag key="shop" value="hometextile"/>
+    </type>
+    <type name="carpets">
+    <or>
+          <tag key="shop" value="carpet"/>
+          <tag key="shop" value="carpets"/>
+          <tag key="shop" value="interior"/>
+    </or>
+    <default>
+        <tag key="shop" value="carpet"/>
+    </default>
+    </type>
+     <type name="doityourself">
+        <tag key="shop" value="doityourself"/>
+    </type>
+    
+        
+    <!-- Miscellaneous -->
+    
+    <type name="florist">
+        <tag key="shop" value="florist"/>
+    </type>
+    <type name="jewelers">
+        <tag key="shop" value="jewelers"/>
+    </type>
+    <type name="souvenirs">
+        <or>
+            <tag key="shop" value="souvenir"/>
+            <tag key="shop" value="gifts"/>
+            <tag key="shop" value="gift"/>
+        </or>
+        <default>
+            <tag key="shop" value="souvenir"/>
+        </default>
+    </type>
+    <type name="toys">
+        <or>
+            <tag key="shop" value="toys"/>
+            <tag key="shop" value="games"/>
+        </or>
+        <default>
+            <tag key="shop" value="toys"/>
+        </default>
+    </type>
+    <type name="adult">
+        <or>
+            <tag key="shop" value="sex"/>
+            <tag key="shop" value="adult"/>
+            <tag key="shop" value="erotic"/>
+        </or>
+        <default>
+            <tag key="shop" value="adult"/>
+        </default>
+    </type>
+    
+    <!-- Sports & Outdoor -->    
+    
+    <type name="general_sporting_goods">
+        <or>
+            <tag key="shop" value="sports"/>
+            <tag key="shop" value="sport"/>
+        </or>
+        <default>
+            <tag key="shop" value="sports"/>
+        </default>
+    </type>
+    <type name="bicycle">
+        <tag key="shop" value="bicycle"/>
+    </type>
+    <type name="outdoor">
+    <or>
+        <tag key="shop" value="outdoor"/>
+        <tag key="shop" value="tourist"/>
+    </or>
+    <default>
+        <tag key="shop" value="outdoor"/>
+    </default>
+    </type>
+    
+    
+    <!--Services-->
+    
+    <type name="atm">
+        <tag key="amenity" value="atm"/>
+    </type>
+    <type name="bank">
+        <tag key="amenity" value="bank"/>
+    </type>
+    <type name="bureau_de_change">
+        <tag key="amenity" value="bureau_de_change"/>
+    </type>
+    
+    
+    <!-- Miscellaneous services -->
+    
+    <type name="post_office">
+        <tag key="amenity" value="post_office"/>
+    </type>
+    <type name="post_box">
+        <tag key="amenity" value="post_box"/>
+    </type>
+    <type name="internet_cafe">
+        <tag key="amenity" value="internet_cafe"/>
+    </type>
+    <type name="telephone">
+        <tag key="amenity" value="telephone"/>
+    </type>
+    <type name="surveillance">
+    <or>
+        <tag key="man_made" value="surveillance"/>
+        <tag key="surveillance" value="public"/> 
+        <tag key="surveillance" value="outdoor"/>
+    </or>
+    <default>
+        <tag key="man_made" value="surveillance"/>
+    </default>
+    </type>
+    
+    
+    <!-- Personal services -->
+    
+    <type name="dry_cleaning">
+        <tag key="shop" value="dry_cleaning"/>
+    </type>
+    <type name="publicToilets">
+        <tag key="amenity" value="toilets"/>
+    </type>
+    <type name="recycling">
+        <tag key="amenity" value="recycling"/>
+    </type>
+    <type name="drinkingWater">
+        <tag key="amenity" value="drinking_water"/>
+    </type>
+    <type name="brothel">
+        <tag key="amenity" value="brothel"/>
+    </type>
+    <type name="hairdresser">
+        <or>
+            <tag key="shop" value="hairdresser"/>
+            <tag key="shop" value="beauty"/>
+        </or>
+        <default>
+            <tag key="shop" value="hairdresser"/>
+        </default>
+    </type>
+    <type name="laundry">
+        <tag key="shop" value="laundry"/>
+    </type>
+    <type name="travel_agency">
+        <or>
+            <tag key="shop" value="travel_agency"/>
+            <tag key="shop" value="travel_agent"/>
+        </or>
+        <default>
+            <tag key="shop" value="travel_agency"/>
+        </default>
+    </type>
+    
+    
+    <!--Sports-->
+    
+    <type name="golf_course">
+        <tag key="leisure" value="golf_course"/>
+    </type>
+    <type name="sport_centre">
+        <or>
+            <tag key="leisure" value="sport_centre"/>
+            <tag key="leisure" value="sports_centre"/>
+        </or>
+        <default>
+            <tag key="leisure" value="sport_centre"/>
+        </default>
+    </type>
+    <type name="stadium">
+        <tag key="leisure" value="stadium"/>
+    </type>
+        
+    <type name="ten_pin">
+        <tag key="sport" value="10pin"/>
+    </type>
+    <type name="athletics">
+        <tag key="sport" value="athletics"/>
+    </type>
+    <type name="australian_football">
+        <tag key="sport" value="australian_football"/>
+    </type>
+    <type name="archery">
+        <tag key="sport" value="archery"/>
+    </type>
+    <type name="baseball">
+        <tag key="sport" value="baseball"/>
+    </type>
+    <type name="basketball">
+        <tag key="sport" value="basketball"/>
+    </type>
+    <type name="boules">
+        <tag key="sport" value="boules"/>
+    </type>
+    <type name="bowls">
+        <tag key="sport" value="bowls"/>
+    </type>
+    <type name="canoe">
+        <tag key="sport" value="canoe"/>
+    </type>
+    <type name="climbing">
+        <tag key="sport" value="climbing"/>
+    </type>
+    <type name="cricket">
+        <tag key="sport" value="cricket"/>
+    </type>
+    <type name="cricket_nets">
+        <tag key="sport" value="cricket_nets"/>
+    </type>
+    <type name="croquet">
+        <tag key="sport" value="croquet"/>
+    </type>
+    <type name="dog_racing">
+        <tag key="sport" value="dog_racing"/>
+    </type>
+    <type name="equestrian">
+        <tag key="sport" value="equestrian"/>
+    </type>
+    <type name="football">
+        <tag key="sport" value="football"/>
+    </type>
+    <type name="golf">
+        <tag key="sport" value="golf"/>
+    </type>
+    <type name="gymnastics">
+        <tag key="sport" value="gymnastics"/>
+    </type>
+    <type name="hockey">
+        <tag key="sport" value="hockey"/>
+    </type>
+    <type name="horse_racing">
+        <tag key="sport" value="horse_racing"/>
+    </type>
+    <type name="motor_sport">
+        <tag key="sport" value="motor"/>
+    </type>
+    <type name="multi">
+        <tag key="sport" value="multi"/>
+    </type>
+    <type name="pelota">
+        <tag key="sport" value="pelota"/>
+    </type>
+    <type name="pitch">
+        <tag key="leisure" value="pitch"/>
+    </type>
+    <type name="racquet">
+        <tag key="sport" value="racquet"/>
+    </type>
+    <type name="rowing">
+        <tag key="sport" value="rowing"/>
+    </type>
+    <type name="rugby">
+        <tag key="sport" value="rugby"/>
+    </type>
+    <type name="shooting">
+        <tag key="sport" value="shooting"/>
+    </type>
+    <type name="skating">
+        <tag key="sport" value="skating"/>
+    </type>
+    <type name="skateboard">
+        <tag key="sport" value="skateboard"/>
+    </type>
+    <type name="soccer">
+        <tag key="sport" value="soccer"/>
+    </type>
+    <type name="swimming">
+        <tag key="sport" value="swimming"/>
+    </type>
+    <type name="skiing">
+        <tag key="sport" value="skiing"/>
+    </type>
+    <type name="track">
+        <tag key="leisure" value="track"/>
+    </type>
+    <type name="table_tennis">
+        <tag key="sport" value="table_tennis"/>
+    </type>
+    <type name="team_handball">
+        <tag key="sport" value="team_handball"/>
+    </type>
+    <type name="tennis">
+        <tag key="sport" value="tennis"/>
+    </type>
+    <type name="orienteering">
+        <tag key="sport" value="orienteering"/>
+    </type>
+    
+    
+    <!--Transport access points-->
+    
+    <type name="bicycle_parking">
+        <tag key="amenity" value="bicycle_parking"/>
+    </type>
+    <type name="bicycle_rental">
+        <tag key="amenity" value="bicycle_rental"/>
+    </type>
+    <type name="bus_stop">
+        <or>
+            <tag key="amenity" value="bus_station"/>
+            <tag key="highway" value="bus_stop"/>
+        </or>
+        <default>
+            <tag key="highway" value="bus_stop"/>
+        </default>
+    </type>
+    <type name="ferry_stop">
+        <tag key="amenity" value="ferry_terminal"/>
+    </type>
+    <type name="taxi_stop">
+        <tag key="amenity" value="taxi"/>
+    </type>
+    <type name="tram_stop">
+        <tag key="railway" value="tram_stop"/>
+    </type>
+    <type name="train_station">
+        <or>
+            <tag key="railway" value="halt"/>
+            <tag key="railway" value="station"/>
+        </or>
+        <default>
+            <tag key="railway" value="station"/>
+        </default>
+    </type>
+</types>

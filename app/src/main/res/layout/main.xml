@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapViewId"
+        style="14852"
+        tilesource="CloudMadeStandardTiles"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"/>
+
+    <com.mapzen.controls.ZoomInToAddPois
+        android:id="@+id/zoomInToAddPoisViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dip"/>
+
+    <com.mapzen.controls.LoadingPoisIndicator
+        android:id="@+id/loadingProgressIndicatorId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dip"
+        android:visibility="invisible"/>
+
+    <com.mapzen.controls.PlaceMovedNotificationControl
+        android:id="@+id/place_moved_notification_control_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/copyright_message_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_margin="1dip"
+        android:text="@string/copyright_message"
+        android:textColor="#000000"
+        android:textSize="9sp"/>
+
+    <com.mapzen.controls.CustomZoomControl
+        android:id="@+id/customZoomControlId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/copyright_message_id"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="0dip"
+        android:layout_marginLeft="1dip"
+        android:layout_marginRight="1dip"
+        android:layout_marginTop="1dip"
+        android:focusable="false"/>
+</RelativeLayout>

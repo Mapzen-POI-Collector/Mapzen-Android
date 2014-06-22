@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/gradient_background"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:id="@+id/login_screen_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/mapzen_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dip"
+            android:src="@drawable/mapzen_logo_big"/>
+
+        <TextView
+            android:id="@+id/osm_login_page_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mapzen_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dip"
+            android:layout_marginLeft="10dip"
+            android:gravity="center_horizontal"
+            android:text="@string/osm_login_page_text1"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/osm_login_page_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/osm_login_page_text1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:gravity="fill"
+            android:linksClickable="true"
+            android:text="@string/osm_login_page_text2"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/osm_login_page_text3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/osm_login_page_text2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:gravity="fill"
+            android:text="@string/osm_login_page_text3"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/button_osm_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/osm_login_page_text3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dip"
+            android:text="@string/button_osm_login"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/osm_login_page_text4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_osm_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/osm_login_page_text4"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/osm_login_page_text5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/osm_login_page_text4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:clickable="true"
+            android:text="@string/osm_login_page_text5"
+            android:textColor="#3366FF"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/copyright_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/osm_login_page_text5"
+            android:layout_marginBottom="10dip"
+            android:gravity="center_horizontal"
+            android:text="@string/copyright_message"
+            android:textColor="#000000"
+            android:textSize="8sp"/>
+    </RelativeLayout>
+
+</ScrollView>

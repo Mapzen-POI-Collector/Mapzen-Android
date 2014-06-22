@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip">
+
+    <TextView
+        android:id="@+id/poiTypeEditControlTypeLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        tools:text="type goes here"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/poiTypeEditControlTypeValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poiTypeEditControlTypeLabel"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        tools:text="value goes here"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="normal" />
+
+    <ImageView
+        android:id="@+id/arrow_show_subtypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="6dip"
+        android:src="@drawable/tab_right_arrow" />
+</RelativeLayout>

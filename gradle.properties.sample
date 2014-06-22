@@ -1,0 +1,5 @@
+StoreFile=../mapzen_app.keystore
+StorePassword=mapzen
+KeyAlias=mapzen
+KeyPassword=mapzen
+
